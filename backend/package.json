@@ -1,5 +1,5 @@
 {
-  "name": "ideanick-backend",
+  "name": "@ideanick/backend",
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node-dev --rs src/index.ts",
