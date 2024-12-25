@@ -5,7 +5,7 @@
     "dev": "ts-node-dev --rs src/index.ts",
     "build": "rimraf ./dist && tsc --build ./tsconfig.json ",
     "start": "node ./dist/index.js",
-    "prettierfy": "prettier --loglevel=warn --cache --write '{src/**/*, *}.{ts,js,tsx,json,yml,scss}' '!**{node_modules,dist}/**/*'"
+    "prettierfy": "prettier --loglevel=iwarn --cache --write '{src/**/*, *}.{ts,js,tsx,json,yml,scss}' '!**{node_modules,dist}/**/*'"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
