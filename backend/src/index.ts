@@ -1,6 +1,6 @@
-import express from 'express'
 import * as trcpExpress from '@trpc/server/adapters/express'
 import { trpcRoutes } from './trpc'
+import express from 'express'
 
 const expressApp = express()
 expressApp.get('/ping', (req, res) => {
@@ -15,5 +15,5 @@ expressApp.use(
 )
 
 expressApp.listen(3000, () => {
-  console.info('Express server listening on port ' + process.env.PORT)
+  console.info('Express server listening on port ' + expressApp.name)
 })
