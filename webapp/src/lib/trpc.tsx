@@ -6,25 +6,27 @@ import React from 'react'
 
 export const trpc = createTRPCReact<TrpcRoutes>()
 
-const  queryClient = new QueryClient({
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: false,
-      refetchOnWindowFocus: false
-    }
-  }
+      refetchOnWindowFocus: false,
+    },
+  },
 })
 
 const trpcClient = trpc.createClient({
-  links:[
+  links: [
     httpBatchLink({
       url: 'http://localhost:3000/trpc',
-    })
-  ]
+    }),
+  ],
 })
 
-export const TrpcProvider = ({children}:{children: React.ReactNode}) => {
-  return <trpc.Provider client = {trpcClient} queryClient={queryClient}>
-    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-  </trpc.Provider>
+export const TrpcProvider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <trpc.Provider client={trpcClient} queryClient={queryClient}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </trpc.Provider>
+  )
 }

@@ -2,21 +2,17 @@
   "name": "@ideanick/backend",
   "version": "1.0.0",
   "scripts": {
+    "prc": "pnpm i",
     "dev": "ts-node-dev --rs src/index.ts",
+    "types": "tsc --noEmit --project ./tsconfig.json",
     "build": "rimraf ./dist && tsc --build ./tsconfig.json ",
     "start": "node ./dist/index.js",
-    "prettierfy": "prettier --loglevel=iwarn --cache --write '{src/**/*, *}.{ts,js,tsx,json,yml,scss}' '!**{node_modules,dist}/**/*'"
+    "prettify": "prettier --loglevel=iwarn --cache --write '{src/**/*, *}.{ts,js,tsx,json,yml,scss}' '!**{node_modules,dist}/**/*'"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/node": "^22.10.2",
-    "prettier": "^3.4.2",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "ts-node-dev": "^2.0.0",
-    "types-node": "^1.6.0",
-    "typescript": "^5.7.2"
+    "@types/node": "^22.10.2"
   },
   "private": true,
   "dependencies": {
