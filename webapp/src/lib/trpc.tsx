@@ -4,7 +4,7 @@ import type { TrpcRoutes } from '@ideanick/backend/src/trpc'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React from 'react'
 
-const trpc = createTRPCReact<TrpcRoutes>()
+export const trpc = createTRPCReact<TrpcRoutes>()
 
 const  queryClient = new QueryClient({
   defaultOptions: {

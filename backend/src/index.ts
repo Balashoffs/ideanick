@@ -1,8 +1,10 @@
 import * as trcpExpress from '@trpc/server/adapters/express'
 import { trpcRoutes } from './trpc'
 import express from 'express'
+import cors from 'cors'
 
 const expressApp = express()
+expressApp.use(cors())
 expressApp.get('/ping', (req, res) => {
   res.send('Pong!')
 })

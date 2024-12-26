@@ -8,6 +8,7 @@
     "prettierfy": "prettier --loglevel=iwarn --cache --write '{src/**/*, *}.{ts,js,tsx,json,yml,scss}' '!**{node_modules,dist}/**/*'"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.10.2",
     "prettier": "^3.4.2",
@@ -20,6 +21,7 @@
   "private": true,
   "dependencies": {
     "@trpc/server": "^10.45.2",
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }
