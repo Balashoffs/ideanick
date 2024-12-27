@@ -4,6 +4,7 @@ import { AllIdeasPage } from './pages/AllIdeasPage'
 import { ViewIdeaPage } from './pages/ViewIdeaPage'
 import { getViewIdeaRoute, getAllIdeasRoute, viewIdeaRouteParams } from './lib/routes'
 import { Layout } from './components/Layout'
+import './styles/global.scss'
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<Layout/>}>
+            -
             <Route path={getAllIdeasRoute()} element={<AllIdeasPage />} />
             <Route path={getViewIdeaRoute(viewIdeaRouteParams)} element={<ViewIdeaPage />} />
           </Route>
