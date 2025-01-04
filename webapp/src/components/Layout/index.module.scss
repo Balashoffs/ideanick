@@ -7,7 +7,7 @@ $breakpoint: '<=900px';
   display: flex;
   flex-flow: row nowrap;
   height: 100%;
-  @include media($breakpoint) {
+  @media($breakpoint) {
     flex-flow: column nowrap;
   }
 
@@ -17,7 +17,7 @@ $breakpoint: '<=900px';
     flex: 0 0 200px;
     padding: 20px 30px;
     border-right: 1px solid $black;
-    @include media($breakpoint) {
+    @media($breakpoint) {
       overflow: visible;
       flex: 0 0 auto;
       height: auto;
