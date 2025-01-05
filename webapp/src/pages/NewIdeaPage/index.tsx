@@ -1,14 +1,39 @@
-import { useState } from 'react'
+import {useFormik} from 'formik'
 import { Segment } from '../../components/Segment'
 import { Input } from '../../components/Input'
 import { TextArea } from '../../components/TextArea'
 
 export const NewIdeaPage = () => {
-  const [state, setState] = useState({
-    name: '',
-    nick: '',
-    description: '',
-    text: '',
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      nick: '',
+      description: '',
+      text: '',
+    },
+    validate: (values) => {
+      const errors: Partial<typeof values> = {}
+      if (!values.name) {
+        errors.name = 'Name is required'
+      }
+      if (!values.nick) {
+        errors.nick = 'Nick is required'
+      } else if (!values.nick.match(/^[a-z0-9-]+$/)) {
+        errors.nick = 'Nick may contain only lowercase letters, numbers and dashes'
+      }
+      if (!values.description) {
+        errors.description = 'Description is required'
+      }
+      if (!values.text) {
+        errors.text = 'Text is required'
+      } else if (values.text.length < 100) {
+        errors.text = 'Text should be at least 100 characters long'
+      }
+      return errors
+    },
+    onSubmit: values => {
+      console.info('Submitting...', values)
+    }
   })
 
   return (
@@ -16,13 +41,13 @@ export const NewIdeaPage = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault()
-          console.info('Submitted', state)
+          formik.handleSubmit()
         }}
       >
-        <Input name='name' label='Name' state={state} setState = {setState}></Input>
-        <Input name='nick' label='Nick' state={state} setState = {setState}></Input>
-        <Input name='description' label='Description' state={state} setState = {setState}></Input>
-        <TextArea name='text' label='Text' state={state} setState = {setState}></TextArea>
+        <Input name='name' label='Name' formik={formik}></Input>
+        <Input name='nick' label='Nick' formik={formik}></Input>
+        <Input name='description' label='Description' formik={formik}></Input>
+        <TextArea name='text' label='Text' formik={formik}></TextArea>
 
         <button type="submit">Create Idea</button>
       </form>
